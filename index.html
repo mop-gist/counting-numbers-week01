@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Counting numbers with vanilla JS</title>
+
+    <style>
+        #count-container {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <button type="button" class="add-button" value="1">+1</button>
+    <button type="button" class="add-button" value="5">+5</button>
+    <button type="button" class="add-button" value="-1">-1</button>
+    <button type="button" class="add-button" value="-5">-5</button>
+</div>
+<div id="count-container">
+    <div>
+        count: &nbsp;
+    </div>
+</div>
+
+<script>
+  let count = 0;
+
+  const countContainer = document.getElementById('count-container');
+
+  const countElement = document.createElement('div');
+  countElement.innerText = count;
+
+  countContainer.appendChild(countElement);
+
+  const addButtons = document.getElementsByClassName('add-button');
+
+  [...addButtons].forEach((value) => value.addEventListener('click', calculate));
+
+  function calculate(event) {
+    count += parseInt( event.target.value);
+    countElement.innerText = count;
+  }
+
+
+</script>
+
+</body>
+</html>
