@@ -24,20 +24,18 @@
 </div>
 
 <script>
-  var count = 0;
+  let count = 0;
 
-  var countContainer = document.getElementById('count-container');
+  const countContainer = document.getElementById('count-container');
 
-  var countElement = document.createElement('div');
+  const countElement = document.createElement('div');
   countElement.innerText = count;
 
   countContainer.appendChild(countElement);
 
-  var addButtons = document.getElementsByClassName('add-button');
+  const addButtons = document.getElementsByClassName('add-button');
 
-  for (button of addButtons) {
-    button.addEventListener('click', calculate);
-  }
+  [...addButtons].forEach((value) => value.addEventListener('click', calculate));
 
   function calculate(event) {
     count += parseInt( event.target.value);
