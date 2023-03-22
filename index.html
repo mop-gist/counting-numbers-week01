@@ -12,7 +12,10 @@
 </head>
 <body>
 <div>
-    <button type="button" id="add-button">+5</button>
+    <button type="button" class="add-button" value="1">+1</button>
+    <button type="button" class="add-button" value="5">+5</button>
+    <button type="button" class="add-button" value="-1">-1</button>
+    <button type="button" class="add-button" value="-5">-5</button>
 </div>
 <div id="count-container">
     <div>
@@ -30,11 +33,14 @@
 
   countContainer.appendChild(countElement);
 
-  var addButton = document.getElementById('add-button');
-  addButton.addEventListener('click', calculate);
+  var addButtons = document.getElementsByClassName('add-button');
 
-  function calculate() {
-    count += 5;
+  for (button of addButtons) {
+    button.addEventListener('click', calculate);
+  }
+
+  function calculate(event) {
+    count += parseInt( event.target.value);
     countElement.innerText = count;
   }
 
