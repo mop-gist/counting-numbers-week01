@@ -34,13 +34,13 @@
   countContainer.appendChild(countElement);
 
   const addButtons = document.getElementsByClassName('add-button');
-
-  [...addButtons].forEach((value) => value.addEventListener('click', calculate));
-
-  function calculate(event) {
+  const calculate = (event) => {
     count += parseInt( event.target.value);
     countElement.innerText = count;
   }
+
+  [...addButtons].forEach((value) => value.addEventListener('click', calculate));
+
 
 
 </script>
